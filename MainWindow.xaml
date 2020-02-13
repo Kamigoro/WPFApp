@@ -38,6 +38,8 @@
                         </StackPanel>
                     </Button>
 
+                    <TextBlock x:Name="txbTest"/>
+
                 </StackPanel>
             </Grid>
         </StackPanel>

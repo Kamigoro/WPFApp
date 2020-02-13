@@ -38,11 +38,12 @@ namespace DatabaseTestWPF
             }
 
             InitializeComponent();
+
+            //Arriver sur la page de listing quand on lance l'application
             PeopleListingPage = new PeopleListingPage();
             FRMContent.Navigate(PeopleListingPage);
 
-
-            
+            //Prendre le numéro de série
             Debug.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()} Bien joué mon ami");
 
         }

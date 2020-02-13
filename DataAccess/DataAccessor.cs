@@ -13,6 +13,6 @@ namespace DatabaseTestWPF.DataAccess
         public DbSet<PersonModel> People { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Data Source=App.db");
+            => options.UseSqlite("Data Source=App.sensy");
     }
 }
