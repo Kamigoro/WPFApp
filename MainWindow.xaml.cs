@@ -43,7 +43,7 @@ namespace DatabaseTestWPF
 
 
             
-            Debug.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()}");
+            Debug.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()} Bien joué mon ami");
 
         }
 

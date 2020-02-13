@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DatabaseTestWPF.Models
@@ -22,7 +23,10 @@ namespace DatabaseTestWPF.Models
                 hd.SerialNo = wmi_HD.GetPropertyValue("SerialNumber").ToString();//get the serailNumber of diskdrive
                 hdCollection.Add(hd);
             }
-            return hdCollection.ElementAt<HardDrive>(0).SerialNo;
+            
+            //De temps en temps on a des espaces vides, faut les supprimer
+            string serialNumber = hdCollection.ElementAt<HardDrive>(0).SerialNo.Replace(" ", string.Empty);
+            return serialNumber;
         }
     }
 }

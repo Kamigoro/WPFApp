@@ -11,7 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MaxWidth="100"/>
-            <ColumnDefinition MaxWidth="400"/>
+            <ColumnDefinition MaxWidth="450"/>
             <ColumnDefinition MaxWidth="200"/>
             <ColumnDefinition MaxWidth="50"/>
         </Grid.ColumnDefinitions>
@@ -39,13 +39,6 @@
                     </ListView.View>
                 </ListView>
             </ScrollViewer>
-            <!--Bouton servant à supprimer une persone sélectionnée-->
-            <!--<Button x:Name="BTNDeletePerson" Click="BTNDeletePerson_Click" MaxWidth="200" VerticalAlignment="Bottom">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Delete"/>
-                    <TextBlock Text="Supprimer personne"/>
-                </StackPanel>
-            </Button>-->
         </StackPanel>
         
         <!--Formulaire d'ajout de personne-->
@@ -61,8 +54,8 @@
                 <TextBox x:Name="TBXPersonToAddLastName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Nom" Margin="0,20,0,0"/>
                 <TextBox x:Name="TBXPersonToAddAge" PreviewTextInput="NumericalTextBoxHandler" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Age" Margin="0,20,0,0"/>
                 <TextBox x:Name="TBXPersonToAddEmail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="E-Mail" Margin="0,20,0,0"/>
-                <Button x:Name="BTNAddPerson" Click="BtnAddPerson_Click" Margin="0,20,0,0">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="BTNAddPerson" Click="BtnAddPerson_Click" Margin="0,20,0,0" Style="{StaticResource MaterialDesignFlatButton}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                         <materialDesign:PackIcon Kind="AccountPlus"/>
                         <TextBlock Text="Ajout" Margin="10,0,0,0"/>
                     </StackPanel>

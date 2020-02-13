@@ -46,9 +46,7 @@ namespace DatabaseTestWPF.Views
 
         private void BTNDeletePerson_Click(object sender, RoutedEventArgs e)
         {
-            Button deleteButton = (Button)sender;
-            int id = Int32.Parse((string)deleteButton.Tag);
-            PersonModel personToDelete = viewModel.GetAllPeopleInDB().Where(person => person.Id == id).First();
+            PersonModel personToDelete = (PersonModel)ListViewOfPeople.SelectedItem;
             viewModel.DeletePersonInDB(personToDelete);
             ReloadPeopleList();
         }
