@@ -1,0 +1,49 @@
+﻿<Window x:Class="DatabaseTestWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseTestWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" 
+        MaxHeight="720"
+        MaxWidth="1000">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="200"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--Partie qui contient le logo et la navigation-->
+        <StackPanel Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Grande image de la société-->
+                <Image Source="https://www.sensy.com/img/load-pins-manufacturer-sensy.jpg" Margin="0,40,0,0" Grid.Row="0"/>
+
+                <!--StackPanel vertical reprenant les boutons de navigations-->
+                <StackPanel Margin="0,40,0,0" Grid.Row="1">
+
+                    <!--Bouton permettant de voyager sur la page de listing du personnel-->
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Margin="0,20,0,0" FontSize="15">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountDetails" VerticalAlignment="Center"/>
+                            <TextBlock Text="Listing Personnel"/>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <!--Partie ou vont être chargé les différentes pages de l'application-->
+        <Frame x:Name="FRMContent" Grid.Column="1"/>
+
+    </Grid>
+</Window>
