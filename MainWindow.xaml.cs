@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Management;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,7 @@ namespace DatabaseTestWPF
     public partial class MainWindow : Window
     {
         private PeopleListingPage PeopleListingPage;
+        private SupervisionPage SupervisionPage;
 
         public MainWindow()
         {
@@ -38,9 +40,10 @@ namespace DatabaseTestWPF
             }
 
             InitializeComponent();
+            PeopleListingPage = new PeopleListingPage();
+
 
             //Arriver sur la page de listing quand on lance l'application
-            PeopleListingPage = new PeopleListingPage();
             FRMContent.Navigate(PeopleListingPage);
 
             //Prendre le numéro de série
@@ -48,5 +51,9 @@ namespace DatabaseTestWPF
 
         }
 
+        private void BTNNavigateToSupervision_Click(object sender, RoutedEventArgs e)
+        {
+            FRMContent.Navigate(new SupervisionPage());
+        }
     }
 }

@@ -38,14 +38,19 @@
                         </StackPanel>
                     </Button>
 
-                    <TextBlock x:Name="txbTest"/>
+                    <Button x:Name="BTNNavigateToSupervision" Click="BTNNavigateToSupervision_Click" Style="{StaticResource MaterialDesignFlatButton}" FontSize="15">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ProximitySensor" VerticalAlignment="Center"/>
+                            <TextBlock Text="Supervision"/>
+                        </StackPanel>
+                    </Button>
 
                 </StackPanel>
             </Grid>
         </StackPanel>
-
+        
         <!--Partie ou vont être chargé les différentes pages de l'application-->
-        <Frame x:Name="FRMContent" Grid.Column="1"/>
-
+        <Frame x:Name="FRMContent" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        
     </Grid>
 </Window>

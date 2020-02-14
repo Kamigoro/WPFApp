@@ -29,7 +29,7 @@
                             <GridViewColumn Header="Actions">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Tag="{Binding id}" Click="BTNDeletePerson_Click">
+                                        <Button Tag="{Binding Id}" Click="BTNDeletePerson_Click">
                                             <materialDesign:PackIcon Kind="Delete"/>
                                         </Button>
                                     </DataTemplate>

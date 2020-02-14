@@ -43,11 +43,12 @@ namespace DatabaseTestWPF.ViewModels
             }    
         }
 
-        public void DeletePersonInDB(PersonModel person)
+        public void DeletePersonInDB(int personId)
         {
             using(var database = new DataAccessor())
             {
-                database.People.Remove(person);
+                PersonModel personToDelete = database.People.Where(person => person.Id == personId).First();
+                database.People.Remove(personToDelete);
                 database.SaveChanges();
             } 
         }
