@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseTestWPF.Models
 {
-    public class Measure
+    public class MeasureModel
     {
         public int Id { get; set; }
         public double Signal { get; set; }

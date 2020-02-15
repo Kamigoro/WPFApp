@@ -37,18 +37,18 @@ namespace DatabaseTestWPF.Views
         /// MeasurementsPoints sont les points réellement mesurés
         /// MaxCapacityPoints sont les points qui vont juste délimiter la capa max
         /// </summary>
-        public ChartValues<Measure> MeasurementsPoints { get; set; }
-        public ChartValues<Measure> MaxCapacityPoints { get; set; }
+        public ChartValues<MeasureModel> MeasurementsPoints { get; set; }
+        public ChartValues<MeasureModel> MaxCapacityPoints { get; set; }
 
 
         public SupervisionPage()
         {
             InitializeComponent();
-            MeasurementsPoints = new ChartValues<Measure>();
-            MaxCapacityPoints = new ChartValues<Measure>();
+            MeasurementsPoints = new ChartValues<MeasureModel>();
+            MaxCapacityPoints = new ChartValues<MeasureModel>();
 
             //Configuration du graph pour accepter des objets de type Measure
-            var chartConfig = Mappers.Xy<Measure>()
+            var chartConfig = Mappers.Xy<MeasureModel>()
                 .X(measure => (double)measure.TimeStamp.Ticks / TimeSpan.FromHours(1).Ticks)
                 .Y(measure => measure.Signal);
             ListOfChartSeries = new SeriesCollection(chartConfig)
@@ -76,12 +76,12 @@ namespace DatabaseTestWPF.Views
         /// et retire le premier point du graph si on a dépassé un certains nombres de points dans le graph
         /// </summary>
         /// <param name="measure"></param>
-        private void AddMeasureToChart(Measure measure)
+        private void AddMeasureToChart(MeasureModel measure)
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
                 ListOfChartSeries[0].Values.Add(measure);
-                ListOfChartSeries[1].Values.Add(new Measure { Signal = 500, TimeStamp = measure.TimeStamp });
+                ListOfChartSeries[1].Values.Add(new MeasureModel { Signal = 500, TimeStamp = measure.TimeStamp });
                 if ((ListOfChartSeries[0].Values.Count > 10) && (ListOfChartSeries[1].Values.Count > 10))
                 {
                     RemoveFirstMeasureOfChart();

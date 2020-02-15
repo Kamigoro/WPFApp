@@ -10,7 +10,7 @@
 
     <Grid>
         
-        <GroupBox>
+        <GroupBox BorderThickness="2">
             <GroupBox.Header>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="People"/>
