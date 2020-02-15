@@ -28,8 +28,8 @@ namespace DatabaseTestWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private PeopleListingPage PeopleListingPage;
-        private SupervisionPage SupervisionPage;
+        private PeopleListingPage peopleListingPage;
+        private SupervisionPage supervisionPage;
 
         public MainWindow()
         {
@@ -39,21 +39,35 @@ namespace DatabaseTestWPF
                 db.Database.Migrate();
             }
 
+            //Initialisation des composants et pages
             InitializeComponent();
-            PeopleListingPage = new PeopleListingPage();
+            peopleListingPage = new PeopleListingPage();
+            supervisionPage = new SupervisionPage();
 
 
             //Arriver sur la page de listing quand on lance l'application
-            FRMContent.Navigate(PeopleListingPage);
+            FRMContent.Navigate(peopleListingPage);
 
             //Prendre le numéro de série
             Debug.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()} Bien joué mon ami");
 
         }
 
+        /// <summary>
+        /// Navigation vers le listing de personne
+        /// </summary>
+        private void BTNNavigateToListing_Click(object sender, RoutedEventArgs e)
+        {
+            FRMContent.Navigate(peopleListingPage);
+        }
+
+        /// <summary>
+        /// Navigation vers la supervision
+        /// </summary>
         private void BTNNavigateToSupervision_Click(object sender, RoutedEventArgs e)
         {
-            FRMContent.Navigate(new SupervisionPage());
+            FRMContent.Navigate(supervisionPage);
         }
+
     }
 }

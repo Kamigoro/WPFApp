@@ -36,86 +36,75 @@ namespace DatabaseTestWPF.Views
         public ChartValues<Measure> MaxCapacityPoints { get; set; }
 
 
-        CancellationTokenSource TokenSource;
-        CancellationToken CancellationToken;
-
         public SupervisionPage()
         {
             InitializeComponent();
-
-            TokenSource = new CancellationTokenSource();
-            CancellationToken = TokenSource.Token;
-
-
-            var chartConfig = Mappers.Xy<Measure>().X(measure => (double)measure.TimeStamp.Ticks / TimeSpan.FromHours(1).Ticks).Y(measure => measure.Signal);
-
             MeasurementsPoints = new ChartValues<Measure>();
             MaxCapacityPoints = new ChartValues<Measure>();
 
+            //Configuration du graph pour accepter des objets de type Measure
+            var chartConfig = Mappers.Xy<Measure>()
+                .X(measure => (double)measure.TimeStamp.Ticks / TimeSpan.FromHours(1).Ticks)
+                .Y(measure => measure.Signal);
             ListOfChartSeries = new SeriesCollection(chartConfig)
             {
-                new LineSeries
+                new LineSeries //Déclaration de la série qui va acceuillir les points de mesure
                 {
                     Title = "Capacity Measured",
                     Values = MeasurementsPoints
                 }, 
-                new LineSeries
+                new LineSeries //Déclaration de la série qui va délimiter la capacité max
                 {
                     Title = "Max Capacity",
                     Values = MaxCapacityPoints
                 }
             };
 
+            //Permet de formater les dates correctement dans le graphique
             Formatter = value => new System.DateTime((long)(value * TimeSpan.FromHours(1).Ticks)).ToString("t");
 
-            RunningTask();
-
             DataContext = this;
+
+            
             
         }
 
-        private void RunningTask()
+        /// <summary>
+        /// Ajoute la mesure passée en paramètre au graphique
+        /// et retire le premier point du graph si on a dépassé un certains nombres de points dans le graph
+        /// </summary>
+        /// <param name="measure"></param>
+        private void AddMeasureToChart(Measure measure)
         {
-            Task.Run(() =>
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                int i = 0;
-                while (true)
+                ListOfChartSeries[0].Values.Add(measure);
+                ListOfChartSeries[1].Values.Add(new Measure { Signal = 500, TimeStamp = measure.TimeStamp });
+                if ((ListOfChartSeries[0].Values.Count > 10) && (ListOfChartSeries[1].Values.Count > 10))
                 {
-                    try
-                    {
-                        if (CancellationToken.IsCancellationRequested)
-                        {
-                            CancellationToken.ThrowIfCancellationRequested();
-                        }
-                        Random random = new Random();
-                        double signal = random.NextDouble() * (150 - 0) + 150;
-
-                        Application.Current.Dispatcher.Invoke(() =>
-                        {
-                            ListOfChartSeries[0].Values.Add(new Measure { Signal = signal, TimeStamp = DateTime.Now.AddMinutes(i) });
-                            ListOfChartSeries[1].Values.Add(new Measure { Signal = 500, TimeStamp = DateTime.Now.AddMinutes(i) });
-                        });
-
-                        i++;
-                        Thread.Sleep(1000);
-                    }
-                    catch (OperationCanceledException)
-                    {
-                        TokenSource.Dispose();
-                    }
-                    
+                    RemoveFirstMeasureOfChart();
                 }
-            },CancellationToken);
+            });
+        }
+
+        /// <summary>
+        /// Retire le premier point du graphe
+        /// </summary>
+        private void RemoveFirstMeasureOfChart()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ListOfChartSeries[0].Values.RemoveAt(0);
+                ListOfChartSeries[1].Values.RemoveAt(0);
+            });
         }
 
         private void BTNStartSupervision_Click(object sender, RoutedEventArgs e)
         {
-            RunningTask();
+            TestClass test = new TestClass(AddMeasureToChart);
         }
 
-        private void BTNStopSupervision_Click(object sender, RoutedEventArgs e)
-        {
-            TokenSource.Cancel();
-        }
+        
+
     }
 }

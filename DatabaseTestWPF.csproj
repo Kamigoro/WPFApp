@@ -198,10 +198,19 @@
     <Compile Include="Migrations\20200213094137_ChangingEmail.designer.cs">
       <DependentUpon>20200213094137_ChangingEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200214150456_AddingMeasures.cs" />
+    <Compile Include="Migrations\20200214150456_AddingMeasures.designer.cs">
+      <DependentUpon>20200214150456_AddingMeasures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200214172753_deletingMeasure.cs" />
+    <Compile Include="Migrations\20200214172753_deletingMeasure.designer.cs">
+      <DependentUpon>20200214172753_deletingMeasure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DataAccessorModelSnapshot.cs" />
     <Compile Include="Models\HardDriveTools.cs" />
     <Compile Include="Models\HardDrive.cs" />
     <Compile Include="Models\Measure.cs" />
+    <Compile Include="Models\TestClass.cs" />
     <Compile Include="ViewModels\PeopleViewModel.cs" />
     <Compile Include="Views\PeopleListingPage.xaml.cs">
       <DependentUpon>PeopleListingPage.xaml</DependentUpon>

@@ -10,8 +10,14 @@ namespace DatabaseTestWPF.DataAccess
 {
     public class DataAccessor : DbContext
     {
+        /// <summary>
+        /// C'est ici que l'on vient déclarer les tables qu'on veut voir apparaitre dans la DB
+        /// </summary>
         public DbSet<PersonModel> People { get; set; }
 
+        /// <summary>
+        /// Précision sur la DB à utiliser
+        /// </summary>
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=App.sensy");
     }

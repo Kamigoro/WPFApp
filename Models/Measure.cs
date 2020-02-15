@@ -8,7 +8,8 @@ namespace DatabaseTestWPF.Models
 {
     public class Measure
     {
+        public int Id { get; set; }
         public double Signal { get; set; }
-        public DateTime TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; } = DateTime.Now;
     }
 }

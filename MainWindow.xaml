@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MainWindow" 
-        MaxHeight="720"
-        MaxWidth="1000">
+        Height="720"
+        Width="1000">
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -31,13 +31,14 @@
                 <StackPanel Margin="0,40,0,0" Grid.Row="1">
 
                     <!--Bouton permettant de voyager sur la page de listing du personnel-->
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Margin="0,20,0,0" FontSize="15">
+                    <Button x:Name="BTNNavigateToListing" Click="BTNNavigateToListing_Click" Style="{StaticResource MaterialDesignFlatButton}" Margin="0,20,0,0" FontSize="15">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="AccountDetails" VerticalAlignment="Center"/>
                             <TextBlock Text="Listing Personnel"/>
                         </StackPanel>
                     </Button>
 
+                    <!--Bouton permettant de voyager sur la page de supervision-->
                     <Button x:Name="BTNNavigateToSupervision" Click="BTNNavigateToSupervision_Click" Style="{StaticResource MaterialDesignFlatButton}" FontSize="15">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ProximitySensor" VerticalAlignment="Center"/>

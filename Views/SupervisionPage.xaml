@@ -39,10 +39,9 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="BTNStartSupervision" Width="150" Content="Commencer" Click="BTNStartSupervision_Click"/>
-                    <Button x:Name="BTNStopSupervision" Width="150" Content="Stop" Click="BTNStopSupervision_Click"/>
                 </StackPanel>
             </StackPanel>
-
+            
         </Grid>
     </Grid>
 </Page>
