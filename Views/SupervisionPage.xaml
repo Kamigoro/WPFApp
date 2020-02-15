@@ -5,43 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DatabaseTestWPF.Views"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SupervisionPage">
 
     <Grid>
-        <Grid Margin="15, -60, 15, 15" MaxHeight="350">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height=".70*"></RowDefinition>
-                <RowDefinition Height=".5*"></RowDefinition>
-            </Grid.RowDefinitions>
+        
+        <!--La groupbox prend toute la page-->
+        <GroupBox VerticalAlignment="Top" BorderThickness="2">
             
-            <!--Dessus du graphique-->
-            <Border x:Name="Border1" Grid.Row="0" Grid.RowSpan="4" CornerRadius="5" Background="White" />
-            <Border Grid.Row="0" Grid.RowSpan="3" Background="#CE2156" ></Border>
-            <TextBlock Grid.Row="0" Text="Measurements" TextAlignment="Center" Padding="10, 10, 0, 5" Foreground="White" FontSize="18"/>
-
-            <!--Graphique-->
-            <lvc:CartesianChart Name="Chart" Grid.Row="2" Hoverable="False" Series="{Binding ListOfChartSeries}">
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Timestamp" LabelFormatter="{Binding Formatter}"/>
-                </lvc:CartesianChart.AxisX>
-                <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Torque" MinValue="0" MaxValue="600"/>
-                </lvc:CartesianChart.AxisY>
-            </lvc:CartesianChart>
-            
-            <!--Bas du graphique-->
-            <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="25, 0">
-                <TextBlock Opacity=".4" FontSize="13">Torque measured by the sensor</TextBlock>
+            <!--Header de la groupbox-->
+            <GroupBox.Header>
                 <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="ChartLine"/>
+                    <TextBlock Text="Data visualisation" />
+                </StackPanel>
+            </GroupBox.Header>
+
+            <!--Contenu de la page-->
+            <StackPanel>
+                
+                <TextBlock Text="Measurements" TextAlignment="Center" FontSize="18"/>
+                
+                <!--Graphique-->
+                <lvc:CartesianChart Height="300" x:Name="Chart" Hoverable="False" Series="{Binding ListOfChartSeries}">
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Title="Timestamp" LabelFormatter="{Binding Formatter}"/>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Title="Torque" MinValue="0" MaxValue="600"/>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
+                
+                <!--Bas du graphique-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6">Last Value read : </TextBlock>
                     <TextBlock Foreground="#303030" FontSize="40" Text="{Binding LastMeasure, StringFormat={}{0:N1}}" />
                     <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6">foot/pounds</TextBlock>
                 </StackPanel>
+                
             </StackPanel>
             
-        </Grid>
+        </GroupBox>
+        
     </Grid>
+
 </Page>
