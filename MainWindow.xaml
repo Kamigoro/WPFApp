@@ -34,7 +34,7 @@
                     <Button x:Name="BTNNavigateToListing" Click="BTNNavigateToListing_Click" Style="{StaticResource MaterialDesignFlatButton}" Margin="0,20,0,0" FontSize="15">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="AccountDetails" VerticalAlignment="Center"/>
-                            <TextBlock Text="Listing Personnel"/>
+                            <TextBlock Text="Employee Listing"/>
                         </StackPanel>
                     </Button>
 
@@ -46,6 +46,14 @@
                         </StackPanel>
                     </Button>
 
+                    <!--Bouton permettant de voyager sur la page de configuration-->
+                    <Button x:Name="BTNNavigateToConfiguration" Click="BTNNavigateToConfiguration_Click" Style="{StaticResource MaterialDesignFlatButton}" FontSize="15">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
+                            <TextBlock Text="Configuration"/>
+                        </StackPanel>
+                    </Button>
+                    
                 </StackPanel>
             </Grid>
         </StackPanel>

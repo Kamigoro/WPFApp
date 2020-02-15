@@ -195,6 +195,9 @@
     <Compile Include="Models\HardDrive.cs" />
     <Compile Include="Models\Measure.cs" />
     <Compile Include="ViewModels\PeopleViewModel.cs" />
+    <Compile Include="Views\ConfigurationPage.xaml.cs">
+      <DependentUpon>ConfigurationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PeopleListingPage.xaml.cs">
       <DependentUpon>PeopleListingPage.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ConfigurationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PeopleListingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

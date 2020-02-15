@@ -30,6 +30,7 @@ namespace DatabaseTestWPF
     {
         private PeopleListingPage peopleListingPage;
         private SupervisionPage supervisionPage;
+        private ConfigurationPage configurationPage;
 
         public MainWindow()
         {
@@ -43,13 +44,14 @@ namespace DatabaseTestWPF
             InitializeComponent();
             peopleListingPage = new PeopleListingPage();
             supervisionPage = new SupervisionPage();
+            configurationPage = new ConfigurationPage();
 
 
             //Arriver sur la page de listing quand on lance l'application
             FRMContent.Navigate(peopleListingPage);
 
             //Prendre le numéro de série
-            Debug.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()} Bien joué mon ami");
+            Console.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()} Bien joué mon ami");
 
         }
 
@@ -67,6 +69,14 @@ namespace DatabaseTestWPF
         private void BTNNavigateToSupervision_Click(object sender, RoutedEventArgs e)
         {
             FRMContent.Navigate(supervisionPage);
+        }
+
+        /// <summary>
+        /// Navigation vers la page de configuration
+        /// </summary>
+        private void BTNNavigateToConfiguration_Click(object sender, RoutedEventArgs e)
+        {
+            FRMContent.Navigate(configurationPage);
         }
 
     }
