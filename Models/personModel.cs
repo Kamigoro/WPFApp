@@ -8,15 +8,61 @@ namespace DatabaseTestWPF.Models
 {
     public class PersonModel
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
-        public string Email { get; set; }
+        private string firstName;
+        private string lastName;
+        private string email;
 
-        public string ToString()
+
+        public int Id { get; set; }
+        public string FirstName 
+        { 
+            get { return firstName; }
+            set 
+            {
+                if (value != "")
+                {
+                    firstName = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("FirstName");
+                }
+            }
+        }
+        public string LastName
         {
-            return $"{FirstName} {LastName} {Age} ans";
+            get { return lastName; }
+            set
+            {
+                if (value != "")
+                {
+                    lastName = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("LastName");
+                }
+            }
+        }
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                if (value != "")
+                {
+                    email = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("Email");
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"Prénom : {FirstName}, Nom : {LastName}, Email : {Email}";
         }
     }
 }

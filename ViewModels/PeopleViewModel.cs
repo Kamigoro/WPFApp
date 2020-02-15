@@ -17,14 +17,6 @@ namespace DatabaseTestWPF.ViewModels
 
         }
 
-        public List<PersonModel> GetPeopleInDBByCriteria(string firstName, string lastName, int age)
-        {
-            using (var database = new DataAccessor())
-            {
-                return database.People.Where(person => person.FirstName.Contains(firstName) || person.LastName.Contains(lastName) || person.Age == age).ToList();
-            }   
-        }
-
         public List<PersonModel> GetAllPeopleInDB()
         {
             using (var database = new DataAccessor())
@@ -33,9 +25,9 @@ namespace DatabaseTestWPF.ViewModels
             }     
         }
 
-        public void AddPersonInDB(string firstName, string lastName, int age, string email)
+        public void AddPersonInDB(string firstName, string lastName, string email)
         {
-            PersonModel person = new PersonModel() { FirstName = firstName, LastName = lastName, Age = age, Email = email };
+            PersonModel person = new PersonModel() { FirstName = firstName, LastName = lastName, Email = email };
             using (var database = new DataAccessor())
             {
                 database.People.Add(person);
@@ -51,18 +43,6 @@ namespace DatabaseTestWPF.ViewModels
                 database.People.Remove(personToDelete);
                 database.SaveChanges();
             } 
-        }
-
-        public void DeletePeopleInDB(List<PersonModel> people)
-        {
-            using (var database = new DataAccessor())
-            {
-                foreach (PersonModel person in people)
-                {
-                    database.People.Remove(person);
-                }
-                database.SaveChanges();
-            }
         }
 
         public void DeleteAllPeopleInDB()

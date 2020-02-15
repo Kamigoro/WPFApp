@@ -42,9 +42,8 @@ namespace DatabaseTestWPF.Views
         {
             string firstName = TBXPersonToAddFirstName.Text;
             string lastName = TBXPersonToAddLastName.Text;
-            int age = Int32.Parse(TBXPersonToAddAge.Text);
             string email = TBXPersonToAddEmail.Text;
-            viewModel.AddPersonInDB(firstName, lastName, age, email);
+            viewModel.AddPersonInDB(firstName, lastName, email);
             EmptyFormFields();
             ReloadPeopleList();
         }
@@ -70,7 +69,6 @@ namespace DatabaseTestWPF.Views
         {
             TBXPersonToAddFirstName.Text = "";
             TBXPersonToAddLastName.Text = "";
-            TBXPersonToAddAge.Text = "";
             TBXPersonToAddEmail.Text = "";
         }
 

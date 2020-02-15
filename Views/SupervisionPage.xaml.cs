@@ -32,6 +32,11 @@ namespace DatabaseTestWPF.Views
         public SeriesCollection ListOfChartSeries { get; set; }
         public Func<double, string> Formatter { get; set; }
 
+        /// <summary>
+        /// Séries que l'on va ajouter au graphique
+        /// MeasurementsPoints sont les points réellement mesurés
+        /// MaxCapacityPoints sont les points qui vont juste délimiter la capa max
+        /// </summary>
         public ChartValues<Measure> MeasurementsPoints { get; set; }
         public ChartValues<Measure> MaxCapacityPoints { get; set; }
 
@@ -64,9 +69,6 @@ namespace DatabaseTestWPF.Views
             Formatter = value => new System.DateTime((long)(value * TimeSpan.FromHours(1).Ticks)).ToString("t");
 
             DataContext = this;
-
-            
-            
         }
 
         /// <summary>
@@ -99,11 +101,17 @@ namespace DatabaseTestWPF.Views
             });
         }
 
-        private void BTNStartSupervision_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Fonction permettant de nettoyer le graph quand on relance un test
+        /// </summary>
+        private void ClearChart()
         {
-            TestClass test = new TestClass(AddMeasureToChart);
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ListOfChartSeries[0].Values.Clear();
+                ListOfChartSeries[1].Values.Clear();
+            });
         }
-
         
 
     }

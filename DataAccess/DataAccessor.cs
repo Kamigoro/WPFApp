@@ -19,6 +19,6 @@ namespace DatabaseTestWPF.DataAccess
         /// Précision sur la DB à utiliser
         /// </summary>
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Data Source=App.sensy");
+            => options.UseSqlite("Data Source=Application.sensy");
     }
 }
