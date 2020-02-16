@@ -483,7 +483,6 @@ C:\Users\Dylan\Documents\GitHub\WPFApp\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\Dylan\Documents\GitHub\WPFApp\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
 C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\SupervisionPage.g.cs
 C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\SupervisionPage.baml
+C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\DatabaseTestWPF.csprojAssemblyReference.cache
 C:\Users\Dylan\Desktop\sources\WPFApp\obj\Debug\Views\ConfigurationPage.g.cs
 C:\Users\Dylan\Desktop\sources\WPFApp\obj\Debug\Views\ConfigurationPage.baml
-C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\ConfigurationPage.g.cs
-C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\ConfigurationPage.baml
