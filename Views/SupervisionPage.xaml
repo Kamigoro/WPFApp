@@ -26,7 +26,7 @@
             <!--Contenu de la page-->
             <StackPanel>
                 
-                <TextBlock Text="Measurements" TextAlignment="Center" FontSize="18"/>
+                <TextBlock Text="Measurements" TextDecorations="Underline" TextAlignment="Center" FontSize="18"/>
                 
                 <!--Graphique-->
                 <lvc:CartesianChart Height="300" x:Name="Chart" Hoverable="False" Series="{Binding ListOfChartSeries}">

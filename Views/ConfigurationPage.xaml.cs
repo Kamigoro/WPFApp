@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,16 @@ namespace DatabaseTestWPF.Views
         public ConfigurationPage()
         {
             InitializeComponent();
+            LoadComPortInComboBox();
+        }
+
+        private void LoadComPortInComboBox()
+        {
+            foreach (string comPort in SerialPort.GetPortNames())
+            {
+                CBXComPort.Items.Add(comPort);
+            }
         }
     }
 }
+

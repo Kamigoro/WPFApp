@@ -26,7 +26,7 @@ namespace DatabaseTestWPF.Views
     {
         private PeopleViewModel viewModel;
 
-        /// <summary> Constructeur de la page de listing de personne </summary>
+        
         public PeopleListingPage()
         {
             InitializeComponent();
@@ -34,10 +34,7 @@ namespace DatabaseTestWPF.Views
             ListViewOfPeople.ItemsSource = viewModel.GetAllPeopleInDB();
         }
 
-        /// <summary>
-        /// Ajout d'une personne dans la db et rafraichissement de la liste
-        /// TODO Vérification des champs avant d'essayer de créer la personne
-        /// </summary>
+        // TODO Vérification des champs avant d'essayer de créer la personne
         private void BtnAddPerson_Click(object sender, RoutedEventArgs e)
         {
             string firstName = TBXPersonToAddFirstName.Text;
@@ -48,7 +45,7 @@ namespace DatabaseTestWPF.Views
             ReloadPeopleList();
         }
 
-        /// <summary> Suppression d'une personne grâce à son id qui est caché derrière un bouton </summary>
+        //Suppression d'une personne grâce à son id qui est caché derrière un bouton
         private void BTNDeletePerson_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -57,14 +54,12 @@ namespace DatabaseTestWPF.Views
             ReloadPeopleList();
         }
 
-        /// <summary> Rafraichir la liste de personne pour correspondre à la DB </summary>
         private void ReloadPeopleList()
         {
             ListViewOfPeople.ItemsSource = viewModel.GetAllPeopleInDB();
             ListViewOfPeople.Items.Refresh();
         }
 
-        /// <summary> Vider les champs après l'ajout d'une personne </summary>
         private void EmptyFormFields()
         {
             TBXPersonToAddFirstName.Text = "";
@@ -72,7 +67,6 @@ namespace DatabaseTestWPF.Views
             TBXPersonToAddEmail.Text = "";
         }
 
-        /// <summary> Permet de bloquer l'entrée de caractère non numérique dans une textbox </summary>
         private void NumericalTextBoxHandler(object sender, TextCompositionEventArgs e)
         {
             //Si l'input ne correspond pas à l'expression régulière, nous n'acceptons pas

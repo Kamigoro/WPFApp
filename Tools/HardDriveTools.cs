@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseTestWPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -6,17 +7,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace DatabaseTestWPF.Models
+namespace DatabaseTestWPF.Tools
 {
     public static class HardDriveTools
     {
         public static string GetFirstDiskSerialNumber()
         {
             var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
-            List<HardDrive> hdCollection = new List<HardDrive>();
+            List<HardDriveModel> hdCollection = new List<HardDriveModel>();
             foreach (ManagementObject wmi_HD in searcher.Get())
             {
-                HardDrive hd = new HardDrive();
+                HardDriveModel hd = new HardDriveModel();
                 hd.Model = wmi_HD["Model"].ToString();
                 hd.InterfaceType = wmi_HD["InterfaceType"].ToString();
                 hd.Caption = wmi_HD["Caption"].ToString();
@@ -25,7 +26,7 @@ namespace DatabaseTestWPF.Models
             }
             
             //De temps en temps on a des espaces vides, faut les supprimer
-            string serialNumber = hdCollection.ElementAt<HardDrive>(0).SerialNo.Replace(" ", string.Empty);
+            string serialNumber = hdCollection.ElementAt<HardDriveModel>(0).SerialNo.Replace(" ", string.Empty);
             return serialNumber;
         }
     }

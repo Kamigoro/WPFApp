@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseTestWPF.Models
 {
-    public class HardDrive
+    public class HardDriveModel
     {
         public string Model { get; set; }
         public string InterfaceType { get; set; }
