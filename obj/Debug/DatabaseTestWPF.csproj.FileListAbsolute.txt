@@ -486,3 +486,5 @@ C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\SupervisionPage.baml
 C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\DatabaseTestWPF.csprojAssemblyReference.cache
 C:\Users\Dylan\Desktop\sources\WPFApp\obj\Debug\Views\ConfigurationPage.g.cs
 C:\Users\Dylan\Desktop\sources\WPFApp\obj\Debug\Views\ConfigurationPage.baml
+C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\ConfigurationPage.g.cs
+C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\ConfigurationPage.baml

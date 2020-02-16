@@ -72,13 +72,7 @@ namespace DatabaseTestWPF.Views
             TBXPersonToAddEmail.Text = "";
         }
 
-        /// <summary> Permet de bloquer l'entrée de caractère non numérique dans une textbox </summary>
-        private void NumericalTextBoxHandler(object sender, TextCompositionEventArgs e)
-        {
-            //Si l'input ne correspond pas à l'expression régulière, nous n'acceptons pas
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
+        
 
         
     }
