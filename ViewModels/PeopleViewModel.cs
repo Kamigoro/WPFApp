@@ -11,6 +11,7 @@ namespace DatabaseTestWPF.ViewModels
 {
     public class PeopleViewModel
     {
+        public EventHandler<string> AddingPersonEvent;
 
         public PeopleViewModel()
         {
@@ -27,12 +28,21 @@ namespace DatabaseTestWPF.ViewModels
 
         public void AddPersonInDB(string firstName, string lastName, string email)
         {
-            PersonModel person = new PersonModel() { FirstName = firstName, LastName = lastName, Email = email };
-            using (var database = new DataAccessor())
+            try
             {
-                database.People.Add(person);
-                database.SaveChanges();
-            }    
+                PersonModel person = new PersonModel() { FirstName = firstName, LastName = lastName, Email = email };
+                using (var database = new DataAccessor())
+                {
+                    database.People.Add(person);
+                    database.SaveChanges();
+                    AddingPersonEvent?.Invoke(this,$"{ firstName } { lastName } has been added");
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                AddingPersonEvent?.Invoke(this, e.ParamName);
+            }
+            
         }
 
         public void DeletePersonInDB(int personId)

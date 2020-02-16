@@ -25,7 +25,7 @@ namespace DatabaseTestWPF.Models
                 }
                 else
                 {
-                    throw new ArgumentNullException("FirstName");
+                    throw new ArgumentNullException("First Name missing");
                 }
             }
         }
@@ -40,7 +40,7 @@ namespace DatabaseTestWPF.Models
                 }
                 else
                 {
-                    throw new ArgumentNullException("LastName");
+                    throw new ArgumentNullException("Last Name missing");
                 }
             }
         }
@@ -55,7 +55,7 @@ namespace DatabaseTestWPF.Models
                 }
                 else
                 {
-                    throw new ArgumentNullException("Email");
+                    throw new ArgumentNullException("Email missing");
                 }
             }
         }

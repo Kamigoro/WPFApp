@@ -488,4 +488,3 @@ C:\Users\Dylan\Desktop\sources\WPFApp\obj\Debug\Views\ConfigurationPage.g.cs
 C:\Users\Dylan\Desktop\sources\WPFApp\obj\Debug\Views\ConfigurationPage.baml
 C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\ConfigurationPage.g.cs
 C:\Users\Dylan\Documents\GitHub\WPFApp\obj\Debug\Views\ConfigurationPage.baml
-C:\Users\Dylan\Documents\GitHub\WPFApp\bin\Debug\FluentEmail.Core.dll

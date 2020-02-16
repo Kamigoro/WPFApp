@@ -1,5 +1,6 @@
 ﻿using DatabaseTestWPF.Models;
 using DatabaseTestWPF.ViewModels;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,6 +33,14 @@ namespace DatabaseTestWPF.Views
             InitializeComponent();
             viewModel = new PeopleViewModel();
             ListViewOfPeople.ItemsSource = viewModel.GetAllPeopleInDB();
+            viewModel.AddingPersonEvent += AddingPersonEvenHandler;
+        }
+
+        private void AddingPersonEvenHandler(object sender, string e)
+        {
+            var messageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(2000));
+            SNBPerson.MessageQueue = messageQueue;
+            SNBPerson.MessageQueue.Enqueue(e);
         }
 
         /// <summary>

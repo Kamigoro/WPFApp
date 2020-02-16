@@ -46,7 +46,7 @@
                 <Border BorderThickness="1" BorderBrush="Gray"/>
 
                 <!--Formulaire d'ajout de personne-->
-                <GroupBox MaxHeight="400" MaxWidth="400" VerticalAlignment="Top" BorderThickness="2">
+                <GroupBox MaxHeight="400" MaxWidth="400" VerticalAlignment="Top" Margin="10" BorderThickness="2">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="PersonAdd"/>
@@ -63,6 +63,7 @@
                                 <TextBlock Text="Add" Margin="10,0,0,0"/>
                             </StackPanel>
                         </Button>
+                        <materialDesign:Snackbar x:Name="SNBPerson" Background="Red"/>
                     </StackPanel>
                 </GroupBox>
 
