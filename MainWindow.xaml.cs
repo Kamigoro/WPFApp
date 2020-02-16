@@ -51,7 +51,7 @@ namespace DatabaseTestWPF
             FRMContent.Navigate(peopleListingPage);
 
             //Prendre le numéro de série
-            Console.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()} Bien joué mon ami");
+            Console.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()}");
 
         }
 
