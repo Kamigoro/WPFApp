@@ -21,6 +21,7 @@ using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
+using DatabaseTestWPF.ViewModels;
 
 namespace DatabaseTestWPF.Views
 {
@@ -39,14 +40,17 @@ namespace DatabaseTestWPF.Views
         /// </summary>
         public ChartValues<Measure> MeasurementsPoints { get; set; }
         public ChartValues<Measure> MaxCapacityPoints { get; set; }
+        public SupervisionViewModel SupervisionViewModel { get; set; }
 
 
         public SupervisionPage()
         {
             InitializeComponent();
+            SupervisionViewModel = new SupervisionViewModel();
+            SupervisionViewModel.SalutEvent += SalutEventHandler;
+            
             MeasurementsPoints = new ChartValues<Measure>();
             MaxCapacityPoints = new ChartValues<Measure>();
-
             //Configuration du graph pour accepter des objets de type Measure
             var chartConfig = Mappers.Xy<Measure>()
                 .X(measure => (double)measure.TimeStamp.Ticks / TimeSpan.FromHours(1).Ticks)
@@ -64,11 +68,14 @@ namespace DatabaseTestWPF.Views
                     Values = MaxCapacityPoints
                 }
             };
-
             //Permet de formater les dates correctement dans le graphique
             Formatter = value => new System.DateTime((long)(value * TimeSpan.FromHours(1).Ticks)).ToString("t");
-
             DataContext = this;
+        }
+
+        private void SalutEventHandler(object sender, Measure measure)
+        {
+            AddMeasureToChart(measure);
         }
 
         /// <summary>
@@ -112,7 +119,15 @@ namespace DatabaseTestWPF.Views
                 ListOfChartSeries[1].Values.Clear();
             });
         }
-        
 
+        private void BTNStartSupervision_Click(object sender, RoutedEventArgs e)
+        {
+            SupervisionViewModel.LaunchSupervision();
+        }
+
+        private void BTNStopSupervision_Click(object sender, RoutedEventArgs e)
+        {
+            SupervisionViewModel.StopSupervision();
+        }
     }
 }

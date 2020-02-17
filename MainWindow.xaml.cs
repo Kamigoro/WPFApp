@@ -3,6 +3,9 @@ using DatabaseTestWPF.Models;
 using DatabaseTestWPF.ViewModels;
 using DatabaseTestWPF.Views;
 using Microsoft.EntityFrameworkCore;
+using Spire.Email;
+using Spire.Email.IMap;
+using Spire.Email.Smtp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -50,34 +53,24 @@ namespace DatabaseTestWPF
             //Arriver sur la page de listing quand on lance l'application
             FRMContent.Navigate(peopleListingPage);
 
-            //Prendre le numéro de série
-            Console.WriteLine($"Numéro de série du disque {HardDriveTools.GetFirstDiskSerialNumber()}");
-
         }
 
-        /// <summary>
-        /// Navigation vers le listing de personne
-        /// </summary>
+        
         private void BTNNavigateToListing_Click(object sender, RoutedEventArgs e)
         {
             FRMContent.Navigate(peopleListingPage);
         }
 
-        /// <summary>
-        /// Navigation vers la supervision
-        /// </summary>
         private void BTNNavigateToSupervision_Click(object sender, RoutedEventArgs e)
         {
             FRMContent.Navigate(supervisionPage);
         }
 
-        /// <summary>
-        /// Navigation vers la page de configuration
-        /// </summary>
         private void BTNNavigateToConfiguration_Click(object sender, RoutedEventArgs e)
         {
             FRMContent.Navigate(configurationPage);
         }
+
 
     }
 }

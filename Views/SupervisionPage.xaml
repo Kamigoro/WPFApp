@@ -43,8 +43,10 @@
                     <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6">Last Value read : </TextBlock>
                     <TextBlock Foreground="#303030" FontSize="40" Text="{Binding LastMeasure, StringFormat={}{0:N1}}" />
                     <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6">foot/pounds</TextBlock>
+                    <Button x:Name="BTNStartSupervision" Content="Start" Click="BTNStartSupervision_Click"/>
+                    <Button x:Name="BTNStopSupervision" Content="Stop" Click="BTNStopSupervision_Click"/>
                 </StackPanel>
-                
+
             </StackPanel>
             
         </GroupBox>
