@@ -14,6 +14,7 @@ namespace DatabaseTestWPF.DataAccess
         /// C'est ici que l'on vient déclarer les tables qu'on veut voir apparaitre dans la DB
         /// </summary>
         public DbSet<PersonModel> People { get; set; }
+        public DbSet<AppConfigurationModel> Configurations { get; set; }
 
         /// <summary>
         /// Précision sur la DB à utiliser
