@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\dp\Desktop\WPFApp\obj\Debug\
+C:\Users\Dylan\Desktop\sources\WPFApp\obj\Debug\
 DatabaseTestWPF
 none
 false
 DEBUG;TRACE
-C:\Users\dp\Desktop\WPFApp\App.xaml
+C:\Users\Dylan\Desktop\sources\WPFApp\App.xaml
 4-518408216
-41514360294
-24180757367
-161-592176099
+4-1105923035
+2538185335
+161425699714
 MainWindow.xaml;Views\ConfigurationPage.xaml;Views\PeopleListingPage.xaml;Views\SupervisionPage.xaml;
 
-False
+True
 
