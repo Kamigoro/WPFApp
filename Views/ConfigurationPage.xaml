@@ -25,7 +25,7 @@
             <StackPanel>
 
                 <!--Paramètres de communication-->
-                <TextBlock Text="Communication setting" TextDecorations="Underline" FontSize="18" Margin="10"/>
+                <TextBlock Text="Communication settings" TextDecorations="Underline" FontSize="18" Margin="10"/>
                 <StackPanel Orientation="Horizontal" Margin="10,10">
                     <ComboBox x:Name="CBXComPort" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Com port"/>
                     <Button x:Name="BTNRefreshComPortList" Click="BTNRefreshComPortList_Click" Style="{StaticResource MaterialDesignFlatButton}">

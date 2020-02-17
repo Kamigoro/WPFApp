@@ -475,7 +475,6 @@ C:\Users\dp\Desktop\WPFApp\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\dp\Desktop\WPFApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\dp\Desktop\WPFApp\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\dp\Desktop\WPFApp\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
-C:\Users\dp\Desktop\WPFApp\obj\Debug\DatabaseTestWPF.csprojAssemblyReference.cache
 C:\Users\dp\Desktop\WPFApp\obj\Debug\MainWindow.g.cs
 C:\Users\dp\Desktop\WPFApp\obj\Debug\Views\ConfigurationPage.g.cs
 C:\Users\dp\Desktop\WPFApp\obj\Debug\Views\PeopleListingPage.g.cs

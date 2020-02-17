@@ -201,10 +201,15 @@
     <Compile Include="Migrations\20200215155627_firstMigration.designer.cs">
       <DependentUpon>20200215155627_firstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200217142614_addingConfiguration.cs" />
+    <Compile Include="Migrations\20200217142614_addingConfiguration.designer.cs">
+      <DependentUpon>20200217142614_addingConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DataAccessorModelSnapshot.cs" />
-    <Compile Include="Models\HardDriveTools.cs" />
+    <Compile Include="Models\AppConfigurationModel.cs" />
+    <Compile Include="Models\Tools\HardDriveTools.cs" />
     <Compile Include="Models\HardDrive.cs" />
-    <Compile Include="Models\ICA5.cs" />
+    <Compile Include="Models\Tools\ICATools.cs" />
     <Compile Include="Models\Mailer\IMailer.cs" />
     <Compile Include="Models\Mailer\LicenseMailer.cs" />
     <Compile Include="Models\Measure.cs" />

@@ -2,14 +2,16 @@
 using DatabaseTestWPF.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DatabaseTestWPF.Migrations
 {
     [DbContext(typeof(DataAccessor))]
-    partial class DataAccessorModelSnapshot : ModelSnapshot
+    [Migration("20200217142614_addingConfiguration")]
+    partial class addingConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
