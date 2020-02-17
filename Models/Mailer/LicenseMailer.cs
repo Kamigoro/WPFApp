@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DatabaseTestWPF.Models.Tools;
 
 namespace DatabaseTestWPF.Models.Mailer
 {
@@ -12,7 +13,7 @@ namespace DatabaseTestWPF.Models.Mailer
     {
         public MailAddress AddressFrom { get; set; }
         public MailAddress AddressTo { get; set; } = new MailAddress("info@sensy.com");
-        public SmtpClient SmtpClient { get; set; }
+        public SmtpClient SmtpClient { get; set; } = new SmtpClient() { Host = "relay-b03.edpnet.be", Port = 587 };
         public string LicenseSeed { get; set; }
 
         public string htmlString;
@@ -32,9 +33,6 @@ namespace DatabaseTestWPF.Models.Mailer
                      ";
             message.BodyHtml = htmlString;
 
-            SmtpClient = new SmtpClient();
-            SmtpClient.Host = "relay-b03.edpnet.be";
-            SmtpClient.Port = 587;
             SmtpClient.SendOne(message);
         }
     }
