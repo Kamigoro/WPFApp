@@ -12,7 +12,7 @@ namespace DatabaseTestWPF.ViewModels
     public class SupervisionViewModel
     {
         CancellationTokenSource cts = new CancellationTokenSource();
-        public EventHandler<Measure> SalutEvent;
+        public EventHandler<Measure> NewMeasureEvent;
 
         public unsafe async void LaunchSupervision()
         {
@@ -27,7 +27,7 @@ namespace DatabaseTestWPF.ViewModels
                     {
                         cts.Token.ThrowIfCancellationRequested();
                         Measure measure = new Measure { Signal = i };
-                        SalutEvent?.Invoke(this, measure);
+                        NewMeasureEvent?.Invoke(this, measure);
                         i = i + 20; 
                         Thread.Sleep(1000);
                     }

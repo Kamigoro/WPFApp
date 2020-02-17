@@ -47,7 +47,7 @@ namespace DatabaseTestWPF.Views
         {
             InitializeComponent();
             SupervisionViewModel = new SupervisionViewModel();
-            SupervisionViewModel.SalutEvent += SalutEventHandler;
+            SupervisionViewModel.NewMeasureEvent += NewMeasure_EventHandler;
             
             MeasurementsPoints = new ChartValues<Measure>();
             MaxCapacityPoints = new ChartValues<Measure>();
@@ -73,7 +73,7 @@ namespace DatabaseTestWPF.Views
             DataContext = this;
         }
 
-        private void SalutEventHandler(object sender, Measure measure)
+        private void NewMeasure_EventHandler(object sender, Measure measure)
         {
             AddMeasureToChart(measure);
         }
